@@ -4,3 +4,6 @@
 mozilla.html
 s3-bucket.html
 css/theme.css
+js/config.js
+js/mozscript.js
+.gitignore

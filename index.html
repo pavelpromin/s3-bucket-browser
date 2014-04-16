@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>AWS S3 Bucket Browser .:Based on AWS SDK for JavaScript:.</title>
-		<link rel="stylesheet" type="text/css" href="css/theme.css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.0.0-rc1.min.js"></script>
-	</head>
-	<body>
-		<script src="js/config.js"></script>	
-		<script src="js/s3bb.js"></script>	
-		<div id="overlay"></div>
-		<div id="maincontent">
-			<div id="header">
-				<div id="subheader">
-					<div id="headertitle">S3 Browser Files</div>
-					<div id="status"></div>
-				</div>
-				<div id="breadcrumb" class="breadcrumb"></div>
-			</div>
-			<div id="contents">
-				<div id="elements">
-					<ul id="objects"></ul>
-				</div>
-			</div>
-			<div id="footer">
-				<p>Powered by <a href="http://github.com/juvs/s3-bucket-browser" target="_blank">AWS S3 Bucket Browser</a></p>
-			</div>
-		</div>
-	</body>
-</html>  
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Данные кадастрового деления</title>
+    <link rel="stylesheet" media="screen, projection" type="text/css" href="css/dirListing.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeBJREFUeNqcU81O20AQ%2FtZ2AgQSYQRqL1UPVG2hAUQkxLEStz4DrXpLpD5Drz31Cajax%2Bghhx6qHIJURBTxIwQRwopCBbZjHMcOTrzermPipsSt1Iw03p3ZmW%2B%2B2R0TxhgOD34wjCHZlQ0iDYz9yvEfhxMTCYhEQDIZhkxKd2sqzX2TOD2vBQCQhpPefng1ZP2dVPlLLdpL8SEMcxng%2Fbs0RIHhtgs4twxOh%2BHjZxvzDx%2F3GQQiDFISiRBLFMPKTRMollzcWECrDVhtxtdRVsL9youPxGj%2FbdfFlUZhtDyYbYqWRUdai1oQRZ5oHeHl2gNM%2B01Uqio8RlH%2BnsazJzNwXcq1B%2BiXPHprlEEymeBfXs1w8XxxihfyuXqoHqpoGjZM04bddgG%2F9%2B8WGj87qDdsrK9m%2BoA%2BpbhQTDh2l1%2Bi2weNbSHMZyjvNXmVbqh9Fj5Oz27uEoP%2BSTxANruJs9L%2FT6P0ewqPx5nmiAG5f6AoCtN1PbJzuRyJAyDBzzSQYvErf06yYxhGXlEa8H2KVGoasjwLx3Ewk858opQWXm%2B%2Fib9EQrBzclLLLy89xYvlpchvtixcX6uo1y%2FzsiwHrkIsgKbp%2BYWFOWicuqppoNTnStHzPFCPQhBEBOyGAX4JMADFetubi4BSYAAAAABJRU5ErkJggg%3D%3D">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.0.0-rc13.min.js"></script>
+    <!--base href=""-->
+</head>
+<body dir="ltr">
+<h1 id="breadcrumb">Индекс «/»</h1>
+<p id="UI_goUp"><a class="up" href="ftp://ftp.trimble.com/..">Перейти в каталог на уровень выше</a></p>
+<table order="">
+    <thead>
+    <tr>
+        <th><a href="">Имя</a></th>
+        <th><a href="">Размер</a></th>
+        <th colspan="2"><a href="">Последнее изменение</a></th>
+    </tr>
+    </thead>
+    <tbody id="objects">
+    <tr>
+        <td><a class="dir" href=""></a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<script src="js/config.js"></script>
+<script src="js/s3bb.js"></script>
+</body>
+</html>

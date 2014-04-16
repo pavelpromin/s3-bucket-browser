@@ -31,7 +31,7 @@ function listObjects(prefix) {
 			//Set breadcrumbs..
 			var truncated = data.IsTruncated;
 			var nextMarker = data.NextMarker;
-			var currentFolder = '<a href="javascript:listObjects(\'\')"><span class="path">root</span></a>';
+			var currentFolder = '<a href="javascript:listObjects(\'\')"><span class="path">'+window.location.href+'</span></a>';
 			var icon = '';
 			if  (prefix !== '') {
 				currentFolder += '/';
@@ -62,9 +62,9 @@ function listObjects(prefix) {
 					topFolder += '/';
 				}
 				icon = '<img src="img/arrow-090.png"/>'
-				$('#objects').append('<li><a href="javascript:listObjects(\'' + topFolder + '\')">' + icon + '<span>...</span></a></li>');
+				$('#UI_goUp a').attr('href','javascript:listObjects(\'' + topFolder + '\')');
 			}
-			$('#breadcrumb').html('Current folder is : ' + currentFolder);
+			$('#breadcrumb').html('Индекс  «' + currentFolder + '»');
 			//Set folders...
 			var countFolders = 0;
 			for (var i = 0; i < data.CommonPrefixes.length; i++) {
@@ -73,7 +73,7 @@ function listObjects(prefix) {
 				icon = '<img src="img/folder-horizontal.png"/>'
 				if (prefix !== currentPrefix) {
 					countFolders++;
-					$('#objects').append('<li><a href="javascript:listObjects(\'' + currentPrefix + '\')">' + icon + '<span>' + name + '</span></a></li>');
+					$('#objects').append('<tr><td><a class="dir" href="javascript:listObjects(\'' + currentPrefix + '\')">' + name + '</a></li>');
 				}
 			}
 			
@@ -94,12 +94,25 @@ function renderObjects(contents, countFolders, currentCountFiles, prefix, trunca
 		if (prefix !== key) {
 			countFiles++;
 			var params = {Bucket: 'bucket', Key: 'key'};
-			$('#objects').append('<li><a href="javascript:getObject(\'' + key + '\')">' + icon + '<span>' + fileName + '</span><span class="size">' + size + 'K</span></a></li>');
+            $('#objects').append('<tr>\
+ <td sortable-data="1agileinbounddev"><a class="zip" href="javascript:getObject(\'' + key + '\')">'+fileName+'</a></td>\
+ <td>' + size + '</td>\
+ <td sortable-data="1397449920000000">14.04.2014</td>\
+ <td>10:32:00</td>\
+</tr>');
 		}
 	}
 	if (truncated) {
 		$('#status').html('Loaded : ' + countFolders + ' folder(s), showing ' + countFiles + ' item(s) from S3, <a href="javascript:scrollToBottomListObjects()"><img src="img/arrow-270.png">Go to the bottom of the list to load more items.</a>');
 		icon = '<img src="img/plus-circle.png"/>'
+
+        $('#objects').append('<tr>\
+ <td sortable-data="1agileinbounddev"><a class="dir" href="javascript:listMoreObjects(\'' + nextMarker + '\',\'' + prefix + '\',' + countFiles + ',' + countFolders + ')">Get more items...</a></td>\
+ <td>' + size + '</td>\
+ <td sortable-data="1397449920000000">14.04.2014</td>\
+ <td>10:32:00</td>\
+</tr>');
+
 		$('#objects').append('<li id="moreobjects"><a href="javascript:listMoreObjects(\'' + nextMarker + '\',\'' + prefix + '\',' + countFiles + ',' + countFolders + ')">' + icon + '<span>Get more items...</span></a></li>');
 	} else {
 		$('#status').html('Loaded : ' + countFolders + ' folder(s), ' + countFiles + ' item(s) from S3');
